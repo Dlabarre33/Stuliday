@@ -10,7 +10,7 @@
         </a>
         <div class="py-2 d-none d-md-inline-block">
             <a href="#">Login</a>
-            <a href="#">Logout</a>
+            <a href="?logout">Logout</a>
         </div>
 
     </nav>
