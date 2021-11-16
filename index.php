@@ -7,9 +7,9 @@ $alert = false;
 
 if (isset($_GET['success'])) {
     $alert = true;
-    if ($_GET['success'] == "addedProduct") {
+    if ($_GET['success'] == "inlinePost") {
         $type = "success";
-        $message = "Votre produit a bien été ajouté";
+        $message = "Votre annonce est en ligne";
     }
 }
 
@@ -31,17 +31,15 @@ if ($user) {
             <div class="container">
 
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <div class="col">
-                        <?php
-                        foreach ($posts as $post) {
-                        ?>
-                            <div class="card shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                    <title><?php echo $post['title']; ?></title>
-                                    <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em"><?php echo $post['image']; ?></text>
-                                </svg>
+                    <?php
+                    foreach ($posts as $post) {
+                    ?>
+                        <div class="col">
 
+                            <div class="card shadow-sm">
+                                <img src="..." class="card-img-top" alt="...">
                                 <div class="card-body">
+                                    <h5 class="card-title"><?php echo $post['title']; ?></h5>
                                     <p class="card-text"><?php echo $post['description']; ?></p>
                                     <p class="card-text">Date de mis en ligne : <?php echo $post['date'] ? date('d/m/Y', strtotime($product['date'])) : ''; ?></p>
                                     <div class="d-flex justify-content-between align-items-center">
@@ -49,14 +47,15 @@ if ($user) {
                                             <a href="#!" type="button" class="btn btn-sm btn-outline-secondary">Reservé</a>
                                             <a href="post.php?id=<?php echo $post['post_id']; ?>" type="button" class="btn btn-sm btn-outline-secondary">Voir l'annonce</a>
                                         </div>
-                                        <small class="text-muted">9 mins</small>
                                     </div>
                                 </div>
                             </div>
-                        <?php
-                        } ?>
-                    </div>
+
+                        </div>
+                    <?php
+                    } ?>
                 </div>
+
             </div>
         </div>
 

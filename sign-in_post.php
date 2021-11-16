@@ -42,4 +42,7 @@ if ($user) {
         $_SESSION['user'] = $user["username"];
         header('Location:index.php');
     }
+} else {
+    header('Location:sign-in.php?error=userNotFound');
+    exit();
 }

@@ -1,7 +1,7 @@
 <?php
 
 //? Version non préparée : Récupération des données de post
-$viewPosts = "SELECT * from product";
+$viewPosts = "SELECT * from post";
 $reqViewPosts = $connexion->query($viewPosts);
 $posts = $reqViewPosts->fetchAll();
 

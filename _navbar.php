@@ -1,4 +1,3 @@
-<!-- Navigation-->
 <header class="site-header sticky-top py-1">
     <nav class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2" href="#" aria-label="Product">
@@ -9,9 +8,20 @@
             </svg>
         </a>
         <div class="py-2 d-none d-md-inline-block">
-            <a href="#">Login</a>
-            <a href="?logout">Logout</a>
-        </div>
+            <?php
+            if ($user) {
+                include '_view-posts.php';
+            ?>
+                <a href="index.php">Accueil</a>
+                <a href="compte.php">Mon compte</a>
+                <a href="add-posts.php">Créer une annonce</a>
+                <a href="reservation">Ma reservation</a>
+                <a href="?logout">Logout</a>
+            <?php } else { ?>
+                <a href="sign-in.php">Login</a>
 
+        </div>
+    <?php
+            } ?>
     </nav>
 </header>
