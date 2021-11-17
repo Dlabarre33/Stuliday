@@ -1,38 +1,39 @@
 <?php
 
-// $auth = true;
+$auth = true;
 require 'includes/config.php';
-include_once "_head.php";
-include_once "_navbar.php";
+require 'includes/connect.php';
+include "_head.php";
+include "_navbar.php";
 
-// $alert = false;
+$alert = false;
 // //*Vérification du remplissage des champs
-// if (isset($_GET["error"])) {
-//     $alert = true;
-//     if ($_GET['error'] == "missingInput") {
-//         $type = "secondary";
-//         $message = "Les champs requis sont vides";
-//     }
-//     if ($_GET['error'] == "pastDate") {
-//         $type = "secondary";
-//         $message = "La date supérieur ou égal à la date du jour.";
-//     }
-//     if ($_GET['error'] == "unknownError") {
-//         $type = "warning";
-//         $message = "Une erreur s'est produite, réessayer ultérieurement.";
-//     }
-//     if ($_GET['error'] == "tooBig") {
-//         $type = "warning";
-//         $message = "L'image est trop lourde , elle doit être < 10Mo";
-//     }
-//     if ($_GET['error'] == "wrongFormat") {
-//         $type = "warning";
-//         $message = "L'image est au mauvais format : Les formats acceptés sont jpg,png,jpeg";
-//     }
-// }
-// 
+if (isset($_GET["error"])) {
+    $alert = true;
+    if ($_GET['error'] == "missingInput") {
+        $type = "secondary";
+        $message = "Les champs requis sont vides";
+    }
+    if ($_GET['error'] == "pastDate") {
+        $type = "secondary";
+        $message = "La date supérieur ou égal à la date du jour.";
+    }
+    if ($_GET['error'] == "unknownError") {
+        $type = "warning";
+        $message = "Une erreur s'est produite, réessayer ultérieurement.";
+    }
+    if ($_GET['error'] == "tooBig") {
+        $type = "warning";
+        $message = "L'image est trop lourde , elle doit être < 10Mo";
+    }
+    if ($_GET['error'] == "wrongFormat") {
+        $type = "warning";
+        $message = "L'image est au mauvais format : Les formats acceptés sont jpg,png,jpeg";
+    }
+}
+
 ?>
-<!-- <main>
+<main>
 
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
@@ -45,15 +46,15 @@ include_once "_navbar.php";
 
     <div class="album py-5 bg-light">
         <div class="container">
-            <form action="add-products_post.php" method="post" class="container" enctype="multipart/form-data">
+            <form action="add-posts_post.php" method="post" class="container" enctype="multipart/form-data">
                 <?php echo $alert ? "<div class='alert alert-{$type} mt-2'>{$message}</div>" : ''; ?>
                 <div class="mb-3">
                     <label for="titre" class="form-label">Titre de l'annonce</label>
-                    <input type="text" class="form-control" id="titre" name="title" required>
+                    <input type="text" class="form-control" id="titre" name="title" >
                 </div>
                 <div class="mb-3">
                     <label for="detail" class="form-label">Description</label>
-                    <textarea class="form-control" id="detail" rows="3" name="description" required></textarea>
+                    <textarea class="form-control" id="detail" rows="3" name="description" ></textarea>
                 </div>
 
                 <div class="mb-3">
@@ -73,7 +74,7 @@ include_once "_navbar.php";
         </div>
     </div>
 
-</main> -->
+</main>
 <?php
-require_once "_footer.php";
+include "_footer.php";
 ?>

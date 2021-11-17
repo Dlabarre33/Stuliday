@@ -15,6 +15,7 @@
                 <a href="index.php">Accueil</a>
                 <a href="compte.php">Mon compte</a>
                 <a href="add-posts.php">Créer une annonce</a>
+                <a href="my-posts.php">Mes annonces</a>
                 <a href="reservation">Ma reservation</a>
                 <a href="?logout">Logout</a>
             <?php } else { ?>

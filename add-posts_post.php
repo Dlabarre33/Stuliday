@@ -18,7 +18,7 @@ if (empty($_POST['title']) || empty($_POST['description'])) {
     exit();
 } else {
     //? Si valide, initialisation des variables avec assainissement via trim et htmlspecialchars.
-    $title = htmlspecialchars(trim($_POST['name']));
+    $title = htmlspecialchars(trim($_POST['title']));
     $description = htmlspecialchars(trim($_POST['description']));
 
     if (!empty($_POST['date'])) {
@@ -30,11 +30,13 @@ if (empty($_POST['title']) || empty($_POST['description'])) {
     if (empty($_FILES['image']['name'])) {
         $imagePath = 'public/uploads/noimg.png';
         $image = null;
+    }else{
+        $image = $_FILES ['image'];
     }
 }
 
 if (null !== $date && $date <= date('Y-m-d')) {
-    header('Location:add-posts.php?error=pastDlc');
+    header('Location:add-posts.php?error=pastDate');
     exit();
 }
 
