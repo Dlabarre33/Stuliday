@@ -38,12 +38,12 @@ if ($user) {
                         <div class="col">
 
                             <div class="card shadow-sm">
-                                <img src="<?php echo $post ['image'] ?>" class="card-img-top" alt="...">
+                                <img src="<?php echo $post['image'] ?>" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $post['title']; ?></h5>
-                                    
+
                                     <p class="card-text"><?php echo $post['description']; ?></p>
-                                    <p class="card-text">Date de mis en ligne : <?php echo $post['date'] ? date('d/m/Y', strtotime($product['date'])) : ''; ?></p>
+                                    <p class="card-text">Date de mis en ligne : <?php echo $post['date'] ? date('d/m/Y', strtotime($post['date'])) : ''; ?></p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
                                             <a href="#!" type="button" class="btn btn-sm btn-outline-secondary">Supprimer</a>

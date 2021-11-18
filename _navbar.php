@@ -1,4 +1,4 @@
-<header class="site-header sticky-top py-1">
+<header class="site-header ">
     <nav class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2" href="#" aria-label="Product">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24">
