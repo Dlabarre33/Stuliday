@@ -43,6 +43,7 @@ if ($user) {
 
                                     <p class="card-text"><?php echo $post['description']; ?></p>
                                     <p class="card-text">Date de mis en ligne : <?php echo $post['date'] ? date('d/m/Y', strtotime($post['date'])) : ''; ?></p>
+                                    <p class="card-text">Auteur : <?php echo $post['post_id']; ?></p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
                                             <a href="#!" type="button" class="btn btn-sm btn-outline-secondary">Reservé</a>
