@@ -3,8 +3,8 @@
 $auth = true;
 require 'includes/config.php';
 require 'includes/connect.php';
-include_once '_head.php';
-include_once '_navbar.php';
+include '_head.php';
+include '_navbar.php';
 
 include_once '_view-single.php';
 
@@ -34,5 +34,5 @@ include_once '_view-single.php';
 
 <?php
 
-include_once '_footer.php';
+include '_footer.php';
 ?>

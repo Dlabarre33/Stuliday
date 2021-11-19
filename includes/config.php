@@ -8,7 +8,7 @@ if (isset($_GET['logout'])) {
 }
 
 if (empty($_SESSION)) {
-    if (isset($auth)) {
+    if ($auth) {
         header('Location:sign-in.php?auth');
         exit();
     }

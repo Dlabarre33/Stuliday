@@ -12,6 +12,10 @@ echo '<pre>';
 var_dump($_FILES);
 echo '</pre>';
 
+echo '<pre>';
+var_dump($_SESSION["user"]);
+echo '</pre>';
+
 //? Vérification de la validité du formulaire
 if (empty($_POST['title']) || empty($_POST['description'])) {
     header('Location:add-posts.php?error=missingInput');
@@ -30,8 +34,8 @@ if (empty($_POST['title']) || empty($_POST['description'])) {
     if (empty($_FILES['image']['name'])) {
         $imagePath = 'public/uploads/noimg.png';
         $image = null;
-    }else{
-        $image = $_FILES ['image'];
+    } else {
+        $image = $_FILES['image'];
     }
 }
 
@@ -67,14 +71,17 @@ if ($image) {
 }
 
 //* Une fois les vérifications valider, on insert l'annonce dans la BDD
-$insertPost = 'INSERT INTO post (title,description,date,image) VALUES(:title,:description,:date,:image)';
+$insertPost = 'INSERT INTO post (title,description,date,image,user_id) VALUES (:title,:description,:date,:image,:user_id)';
 $reqInsertPost = $connexion->prepare($insertPost);
 $reqInsertPost->bindValue(':title', $title, PDO::PARAM_STR);
 $reqInsertPost->bindValue(':description', $description, PDO::PARAM_STR);
 $reqInsertPost->bindValue(':date', $date, PDO::PARAM_STR);
 $reqInsertPost->bindValue(':image', $imagePath, PDO::PARAM_STR);
+$reqInsertPost->bindValue(':user_id', $_SESSION["id"]);
+
 
 if ($reqInsertPost->execute()) {
+
     header('Location:index.php?success=inlinePost');
     exit();
 } else {

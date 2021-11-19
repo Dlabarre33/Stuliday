@@ -1,9 +1,8 @@
 <?php
 $auth = true;
 require 'includes/config.php';
-require 'includes/connect.php';
-include_once "_head.php";
-include_once "_navbar.php";
+include "_head.php";
+include "_navbar.php";
 $alert = false;
 
 if (isset($_GET['success'])) {
@@ -15,7 +14,9 @@ if (isset($_GET['success'])) {
 }
 
 if ($user) {
+
     include '_user-view-posts.php';
+
 ?>
     <main>
 
@@ -46,7 +47,7 @@ if ($user) {
                                     <p class="card-text">Date de mis en ligne : <?php echo $post['date'] ? date('d/m/Y', strtotime($post['date'])) : ''; ?></p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <a href="#!" type="button" class="btn btn-sm btn-outline-secondary">Supprimer</a>
+                                            <a href="delete-mypost.php" type="button" class="btn btn-sm btn-outline-secondary">Supprimer</a>
                                             <a href="#!" type="button" class="btn btn-sm btn-outline-secondary">Modifier</a>
                                             <a href="post.php?id=<?php echo $post['post_id']; ?>" type="button" class="btn btn-sm btn-outline-secondary">Voir l'annonce</a>
                                         </div>

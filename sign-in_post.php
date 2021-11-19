@@ -40,6 +40,7 @@ if ($user) {
         exit();
     } else {
         $_SESSION['user'] = $user["username"];
+        $_SESSION['id'] = $user["id"];
         header('Location:index.php');
     }
 } else {
